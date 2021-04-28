@@ -3,7 +3,7 @@ Interpreter for my C-like programming language written on C++
 
 
 ## Language 
-This is a C-family language. In fact it can be descripted as C++ without a many things. You can find its formal description [here](https://github.com/afentev/Interpreter/blob/main/name.docx).
+This is a C-family language. In fact it can be descripted as C++ without many things. You can find its formal description [here](https://github.com/afentev/Interpreter/blob/main/name.docx).
 ### Types 
 * ___integers___
 
@@ -66,7 +66,9 @@ Generator creates Polish Recersed Notation of the program (strictly speaking of 
 
 # Example:
 ## Input:
-`fn int factorial(int x) {
+
+```rust
+fn int factorial(int x) {
     int ans = 1;
     for (int i = 1; i <= x; ++i) {
         ans *= i;
@@ -149,18 +151,24 @@ fn int main() {
     ternSearch();
     return 0;
 }
-`
+```
 
 ## Output:
-`720
+```
+720
 1 2 3 4 5 6 8 10 
 5
 9.5367431640625e-07
-8.673617379884035e-19`
+8.673617379884035e-19
+```
 
 And the main's RPN is:
-`6 factorial print \n print 120 factorize 5 fibonacci print \n print ternSearch 0 return `
+```
+6 factorial print \n print 120 factorize 5 fibonacci print \n print ternSearch 0 return
+```
 
 For example, this is the RPN of fibonacci function:
-`&5 &5 1 == @10 !? 1 return @53 !! &5 2 == @19 !? 1 return @53 !! &6 1 = &7 1 = &8 0 = &8 &5 2 - < @51 !? @41 !! &8 ++ @28 !! &6 &7 += &7 &6 &7 - = @37 !! &6 return`
+```
+&5 &5 1 == @10 !? 1 return @53 !! &5 2 == @19 !? 1 return @53 !! &6 1 = &7 1 = &8 0 = &8 &5 2 - < @51 !? @41 !! &8 ++ @28 !! &6 &7 += &7 &6 &7 - = @37 !! &6 return
+```
 
