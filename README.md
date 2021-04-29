@@ -3,22 +3,22 @@ Interpreter for my C-like programming language written on C++
 
 
 ## Language 
-This is a C-family language. In fact it can be descripted as C++ without many things. You can find its formal description [here](https://github.com/afentev/Interpreter/blob/main/name.docx).
+This is a C-family language. In fact, it can be described as C++ without many things. You can find its formal description [here](https://github.com/afentev/Interpreter/blob/main/name.docx).
 ### Types 
 * ___integers___
 
-  Integers are defined as "int". They are stored in signed 32 bit integers in C++. Now integers supports all operators as in C++ with the exception of inversion and unary "+" and "-". I am going to add them a little bit later.
+  Integers are defined as "int". They are stored in signed 32-bit integers in C++. Now integers support all operators as in C++ with the exception of inversion and unary "+" and "-". I am going to add them a little bit later.
 * ___doubles___
 
-  Doubles are defined as "double". They are stored in C++ long double type. They also support all C++ operators such as summation, multiplication or division.
+  Doubles are defined as "double". They are stored in C++ long double type. They also support all C++ operators such as summation, multiplication, or division.
 
 * ___strings___
  
-  Now string is the most usefull type in language. It can only be concatenated. There is now access by index or something. I think I'll do it later.
+  Now the string is the most useless type in the language. It can only be concatenated. There is no access by index or something. I think I'll do it later.
 
 * ___arrays___
   
-  Unfortunatlly, arrays are absent in the interpreter now. Only syntax analyzer allows "vectors" and all other parts of interpreter will ignore arrays in the best case.
+  Unfortunately, arrays are absent in the interpreter now. Only syntax analyzer allows "vectors" and all other parts of the interpreter will ignore arrays in the best case.
 
 ### Operators
  This is the table with all operators and their priorities:
@@ -42,26 +42,26 @@ This is a C-family language. In fact it can be descripted as C++ without many th
 [ ] (index access) | 15
 
 ### Functions
-This language allows you to create functions. All function declarations must begin with _fn_ keyword with following type designation. There are no void functions. Interpreter does not controll number of provided arguments with function call so this is a dangerous part.
+This language allows you to create functions. All function declarations must begin with the _fn_ keyword with the following type designation. There are no void functions. The interpreter does not control the number of provided arguments with function call so this is a dangerous part.
 
-At this moment there is no recursion in my language. This is also because of several complication in the interpreter. 
+At this moment there is no recursion in my language. This is also because of several complications in the interpreter. 
 
 ## Interpreter
-The interpretor consists of several parts: Token separator, Syntax analyzer, Semantic analyzer and Generator. 
+The interpreter consists of several parts: Token separator, Syntax analyzer, Semantic analyzer, and Generator. 
 
 ### Token separator
-Token separator is located in ["lexic_analyzer.h"](https://github.com/afentev/Interpreter/blob/main/lexic_analyzer.h) file. As input it recieves program code and as output it returns an array of tokens and their generalized types.
+The token separator is located in the ["lexic_analyzer.h"](https://github.com/afentev/Interpreter/blob/main/lexic_analyzer.h) file. As input, it receives program code and as output, it returns an array of tokens and their generalized types.
 
 ### Syntax analyzer
-Syntax analyzer is used for checking if given program code belongs to language. It checks only unexistance of unrecognized tokens and the correctness of recognized tokens correction.
+The syntax analyzer is located in the ["syntax_analyzer.h"](https://github.com/afentev/Interpreter/blob/main/syntax_analyzer.h) file. Syntax analyzer is used for checking if the given program code belongs to the language. It checks only the nonexistence of unrecognized tokens and the correctness of recognized tokens correction.
 I noticed that there are several problems with it. More specifically, it seems like they are connected with functions in some ways. This part needs to be improved.
 
 ### Semantic analyzer
-Personally I think that semantic analyzer now is kinda useless part of interpreter. It was planned as a part of interpreter wich would check correctness of variables using and types consistency. But there were a lot of problems with all this checks so I decided just to turn off this analyzer. All its functions are exist in the Generator, so all semantics problems are caught but in runtime.
+The semantic analyzer is located in the ["semantic_analyzer.h"](https://github.com/afentev/Interpreter/blob/main/semantic_analyzer.h) file. Personally, I think that semantic analyzer now is a kinda useless part of an interpreter. It was planned as a part of the interpreter which would check the correctness of variables using and types consistency. But there were a lot of problems with all these checks so I decided just to turn off this analyzer. All its functions exist in the Generator, so all semantics problems are caught but in runtime.
 
 ### Generator
-Generator consists of actually generator and the executor. 
-Generator creates Polish Recersed Notation of the program (strictly speaking of each function) and the executor execute it.
+The Generator located in the ["generation.h"](https://github.com/afentev/Interpreter/blob/main/generation.h) file. The Generator consists of the actual generator and the executor. 
+The generator creates a Polish Recersed Notation of the program (strictly speaking of each function) and the executor executes it.
 
 
 # Example:
